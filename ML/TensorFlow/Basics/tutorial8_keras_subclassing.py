@@ -10,7 +10,9 @@ physical_devices = tf.config.list_physical_devices("GPU")
 tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
+# (60000, 28, 28, 1)
 x_train = x_train.reshape(-1, 28, 28, 1).astype("float32") / 255.0
+# (10000, 28, 28, 1)
 x_test = x_test.reshape(-1, 28, 28, 1).astype("float32") / 255.0
 
 # CNN -> BatchNorm -> ReLU (common structure)
